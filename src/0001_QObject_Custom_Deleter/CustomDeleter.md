@@ -73,8 +73,7 @@ int main(int argc, char *argv[])
     // https://stackoverflow.com/questions/51440889/the-timing-to-delete-qobject-using-qobjectdeletelater
 
     // Use an exec to verify, that the object is deleted.
-    QTimer timer;
-    timer.singleShot(std::chrono::milliseconds{100}, [&loop](){loop.quit();});
+    QTimer::singleShot(std::chrono::milliseconds{100}, [&loop](){loop.quit();});
     loop.exec();
 
     assert(spy2.count() == 1);
