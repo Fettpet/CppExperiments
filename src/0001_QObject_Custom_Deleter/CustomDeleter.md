@@ -50,9 +50,7 @@ The complete example looks like:
 // Create the Deleter
 struct DeleteLater {
     void operator()(QObject* obj) {
-        if(obj != nullptr) {
-            obj->deleteLater();
-        }
+        obj->deleteLater();
     }
 };
 using QObjectUniqueStruct = std::unique_ptr<QObject, DeleteLater>;
